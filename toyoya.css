@@ -1,0 +1,586 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.navi{
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
+}
+.navi .front{
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+.navi .mid{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    margin: auto;
+}
+.mid a+a::before{
+    content: '|';
+    padding: 0 20px;
+}
+.mid a{
+    text-align: center;
+    color: #000;
+    font-family: 微軟正黑體;
+    text-decoration: none;
+}
+.mid a:hover{
+    color: #f00;
+}
+
+.border{
+    width: 100%;
+}
+.border{
+    width: 91.2%; 
+    height: 10px; 
+    border-left: 165px solid #ff2224; 
+    background: #000 ;
+}
+.video-container {
+
+    position: relative;
+    
+    padding-bottom: 56.25%;
+    
+    padding-top: 30px;
+    
+    height: 0;
+    
+    overflow: hidden;
+    
+}
+    
+.video-container iframe, .video-container object, .video-container embed {
+    
+    position: absolute;
+    
+    top: 0;left: 0;
+    
+    width: 100%;
+    
+    height: 100%;
+}
+
+.navbar{
+    width: 100%;
+    display: flex;
+    background-color: #000;
+    position: sticky;
+    top:0;
+    z-index: 2;
+
+}
+.navbar .item{
+    margin: auto;
+    padding: 20px;
+    color: #fff;
+    background-color: #000;
+    border-bottom: 2px solid transparent;
+    cursor: default;
+    transition: .5s;
+
+    }
+.navbar .item:hover{
+    border-bottom: 2px solid #f00;
+}
+.car{
+    width: 100%;
+    margin: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #000;
+    position: relative;
+
+}
+.car .text{
+    width: 100%;
+    
+}
+.car .text h2{
+    font-size: 44px;
+    color: #f00;
+    text-align: center;
+    cursor: default;
+    padding: 90px 0 20px;
+    font-family: 微軟正黑體;
+
+}
+.car .btn{
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 36px;
+    margin: auto;
+    cursor: default;
+    box-sizing: border-box;
+    padding: 10px;
+    font-family: 微軟正黑體;
+
+
+}
+
+.car .pic{
+    width: 100%;
+    height: 500px;   
+    background-color: #000;
+
+}
+.car .pic img{
+    vertical-align: middle;
+    position: relative;
+    right: 25%;
+    left: 25%;
+    top: 20px;
+    margin: 0 auto ;
+}
+
+.advantage{
+    width: 100%;
+    height: 150px;
+    margin: auto;
+    padding: 10px 0;
+    position: relative;
+}
+.advantage h2{
+    font-size: 40px;
+    font-family: 微軟正黑體;
+    color: #000;
+    text-align: center;
+    text-decoration: underline;
+    padding: 10px 0;
+}
+.advantage ul{
+    display: inline;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    
+}
+.advantage ul li{
+    font-family: 微軟正黑體;
+    border: 1px solid #ccc;
+    display: inline-block;
+    box-shadow: 1px 1px 1px #ccc;
+    box-sizing: border-box;
+    width: 200px;
+    font-size: 36px;
+    margin: 18px;
+    transition: 2s;
+}
+.advantage ul li:hover{
+background-color: #f00;
+}
+
+.photo1{
+    padding: 100px;
+    width: 960px;
+    height: 620px;
+    margin: auto;
+    position: relative;
+    opacity: 0;
+    transition: all 1s;
+}
+.photo1:hover{
+    opacity: 1;
+}
+.photo1 .p1{
+    position: absolute;
+    top: 0;
+    left: 100px;
+    z-index: 1;
+}
+.photo1 .p2{
+    position: absolute;
+    left: 280px;
+    top: 137px;
+}
+.photo1 .p3{
+    position: absolute;
+    right: 170px;
+    top: 330px;
+}
+.photo1 .p4{
+    position: absolute;
+    z-index: 1;
+    bottom: 0px;
+    left: 140px;
+}
+.photo1 .p5{
+    width: 500px;
+    height: 400px;
+    position:absolute;
+    top:50px;
+    right: 100px;
+    background-color: #eee;
+    box-shadow: 1px 1px 12px gray;
+    z-index: -1;
+}
+.photo2{
+    padding: 100px;
+    width: 960px;
+    height: 620px;
+    margin: auto;
+    position: relative;
+    opacity: 0;
+    transition: all 1s;
+}
+.photo2 .p1{
+    position: absolute;
+    right: 100px;
+    top: 0;
+    z-index: 1;
+}
+.photo2 .p2{
+    position: absolute;
+    top: 200px;
+    right: 350px;
+}
+.photo2 .p3{
+    position: absolute;
+    left: 80px;
+    bottom: 50%;
+}
+.photo2 .p4{
+    position: absolute;
+    right: 100px;
+    bottom: 100px;
+}
+.photo2 .p5{
+    width: 500px;
+    height: 400px;
+    position:absolute;
+    top:50px;
+    right: 300px;
+    background-color: #eee;
+    box-shadow: 1px 1px 12px gray;
+    z-index: -1;
+}
+.photo2:hover{
+    opacity: 1;
+}
+
+.photo3{
+    padding: 100px;
+    width: 960px;
+    height: 620px;
+    margin: auto;
+    position: relative;
+    opacity: 0;
+    transition: all 1s;
+}
+.photo3:hover{
+    opacity: 1;
+}
+.photo3 .p1{
+    position: absolute;
+    top: 0;
+    left: 100px;
+    z-index: 1;
+}
+.photo3 .p2{
+    position: absolute;
+    left: 280px;
+    top: 137px;
+}
+.photo3 .p3{
+    position: absolute;
+    right: 170px;
+    top: 330px;
+}
+.photo3 .p4{
+    position: absolute;
+    z-index: 1;
+    bottom: 0px;
+    left: 140px;
+}
+.photo3 .p5{
+    width: 500px;
+    height: 400px;
+    position:absolute;
+    top:50px;
+    right: 100px;
+    background-color: #eee;
+    box-shadow: 1px 1px 12px gray;
+    z-index: -1;
+}
+.photo4{
+    padding: 100px;
+    width: 960px;
+    height: 620px;
+    margin: auto;
+    position: relative;
+    opacity: 0;
+    transition: all 1s;
+}
+.photo4 .p1{
+    position: absolute;
+    right: 100px;
+    top: 0;
+    z-index: 1;
+}
+.photo4 .p2{
+    position: absolute;
+    top: 200px;
+    right: 350px;
+}
+.photo4 .p3{
+    position: absolute;
+    left: 80px;
+    bottom: 50%;
+}
+.photo4 .p4{
+    position: absolute;
+    right: 100px;
+    bottom: 100px;
+}
+.photo4:hover{
+    opacity: 1;
+}
+.photo4 .p5{
+    width: 500px;
+    height: 400px;
+    position:absolute;
+    top:50px;
+    right: 300px;
+    background-color: #eee;
+    box-shadow: 1px 1px 12px gray;
+    z-index: -1;
+}
+
+
+.photo5{
+    padding: 100px;
+    width: 960px;
+    height: 620px;
+    margin: auto;
+    position: relative;
+    opacity: 0;
+    transition: all 1s;
+}
+.photo5:hover{
+    opacity: 1;
+}
+.photo5 .p1{
+    position: absolute;
+    top: 0;
+    left: 100px;
+    z-index: 1;
+}
+.photo5 .p2{
+    position: absolute;
+    left: 280px;
+    top: 137px;
+}
+.photo5 .p3{
+    position: absolute;
+    right: 170px;
+    top: 330px;
+}
+.photo5 .p4{
+    position: absolute;
+    z-index: 1;
+    bottom: 100px;
+    left: 140px;
+}
+.photo5 .p5{
+    width: 500px;
+    height: 400px;
+    position:absolute;
+    top:50px;
+    right: 100px;
+    background-color: #eee;
+    box-shadow: 1px 1px 12px gray;
+    z-index: -1;
+}
+
+.more{
+    width: 960px;
+    height: 200px;
+    margin: auto;
+    position: relative;
+}
+.more .pic1{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.more .pic2{
+    position: absolute;
+    bottom: -150px;
+    right: 135px;
+}
+
+.video-test{
+    width: 100%;
+    padding: 200px 0 0;
+    margin: auto;
+}
+h2{
+    font-size: 40px;
+    font-family: 微軟正黑體;
+    color: #000;
+    text-align: center;
+    text-decoration: underline;
+    padding: 10px 0;
+}
+.ad-text{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-family: 微軟正黑體;
+    color:#fff ;
+    font-size: 36px;
+    position: relative;
+    bottom: 400px;
+    text-decoration: underline #f00 ;
+}
+
+.style{
+    width:1200px;
+    margin: auto;
+    display: flex;
+}
+.style .item{
+    width: 250px;
+    padding: 20px 0 50px 0 ;
+}
+.item .pic img{
+    width: 200px;
+    height: 100px;
+}
+.style .item h4{
+    text-align: center;
+    font-size: 22px;
+    font-family: 微軟正黑體;
+    font-weight: bold;
+    padding: 20px 0;
+}
+.btn-try{
+    display: flex;
+    width: 200px;
+}
+.btn-try .btn-try1{
+    font-family: 微軟正黑體;
+    border: 1px #ff2244 solid;
+    background-color: #f00;
+    margin:0 10px;
+    border-radius: 5px;
+    color:#fff;
+    cursor: default;
+    transition: all .5s;
+
+}
+.btn-try .btn-try2{
+    font-family: 微軟正黑體;
+    border: 1px #ff2244 solid;
+    background-color: #f00;
+    border-radius: 5px;
+    color:#fff;
+    cursor: default;
+    transition: all .5s;
+
+}
+.btn-try :hover{
+    background-color: #fff;
+    color: #f00;
+}
+.des{
+    width: 100%;
+    height: 200px;
+    margin: auto;
+    background-color: #eee;
+}
+.des .Description {
+    font-family: 微軟正黑體;
+    text-align: center;
+    line-height: 10;
+    padding: 50px 0;
+    color: #bbb;
+    font-size: 12px;
+cursor: default;
+}
+.footer{
+    width: 100%;
+    height: 60px;
+    font-family: 微軟正黑體;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #888;
+}
+.footer p{
+    display: inline;
+    color: #fff;
+}
+.footer ul{
+    display: inline;
+}
+.footer ul li{
+    display: inline;
+    color: #fff;
+    cursor: pointer;
+}
+.footer ul li:hover{
+    text-decoration: underline;
+}
+.footer ul li+li::before{
+    content: '|';
+}
+.footer span{
+    padding: 10px 0;
+    display: block;
+    color: #ccc;
+}
