@@ -77,29 +77,11 @@ table {
           box-sizing: border-box;
 }
 
-.top-panel .btn-phone {
-  height: 20px;
-}
-
 .top-panel .btn-phone button {
   border: 0;
   background-color: transparent;
   color: #fff;
   outline: none;
-}
-
-.top-panel .external-site-icon {
-  padding: 10px 28.8%;
-  font-size: 0px;
-  text-align: center;
-}
-
-.top-panel .external-site-icon a {
-  text-decoration: none;
-}
-
-.top-panel .external-site-icon a img {
-  margin: 0 2.66666666666667%;
 }
 
 .navigation-bar {
@@ -539,8 +521,30 @@ table {
   input:checked ~ nav {
     display: block;
   }
-  .btn-phone {
+  .top-panel .btn-phone {
     position: relative;
+    height: 20px;
+  }
+  .top-panel .btn-phone button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .top-panel .external-site-icon {
+    max-width: 100%;
+    padding: 10px 28.8%;
+    font-size: 0px;
+    text-align: center;
+    background-color: #272727;
+  }
+  .top-panel .external-site-icon a {
+    text-decoration: none;
+  }
+  .top-panel .external-site-icon a img {
+    margin: 0 2.66666666666667%;
   }
   input:checked ~ .menu-btn {
     opacity: .4;
