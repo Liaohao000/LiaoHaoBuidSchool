@@ -68,7 +68,6 @@ table {
 }
 
 .top-panel .address {
-  background-color: #272727;
   color: #fff;
   font-family: Lato,sans-serif;
   margin: 0px 30px;
@@ -85,22 +84,17 @@ table {
 }
 
 .navigation-bar {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  width: 100%;
 }
 
 .navigation-bar .homepage {
   text-decoration: none;
   text-align: center;
-  width: 100%;
 }
 
 .navigation-bar .homepage img {
   vertical-align: center;
+  display: inline;
 }
 
 .navigation-bar button {
@@ -108,6 +102,7 @@ table {
 }
 
 .navigation-bar .btn-searsh {
+  display: inline;
   outline: none;
   background-color: transparent;
   border: 0;
@@ -169,13 +164,8 @@ table {
   opacity: .7;
 }
 
-.service-claims {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.service-claims .main-title {
+.our-services {
+  display: block;
   text-align: center;
   letter-spacing: 3px;
   text-align: center;
@@ -186,7 +176,7 @@ table {
   position: relative;
 }
 
-.service-claims .main-title::before {
+.our-services::before {
   content: '';
   display: inline-block;
   width: 30px;
@@ -200,8 +190,13 @@ table {
   margin: auto;
 }
 
+.service-claims {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
 .service-claims .project {
-  margin: 10px 2.66666666666667%;
   text-align: center;
 }
 
@@ -214,10 +209,9 @@ table {
   font-family: Montserrat,sans-serif;
   font-size: 16px;
   font-weight: bold;
-  margin: 10px;
 }
 
-.service-claims .project p {
+.service-claims .project .subtitle p {
   font-family: Montserrat,sans-serif;
   font-size: 16px;
   color: #ccc;
@@ -226,18 +220,14 @@ table {
 .history {
   width: 100%;
   max-width: 1200px;
+  margin: auto;
   background-color: #eee;
   text-align: left;
 }
 
-.history .history-photo {
-  margin: 10px 5.33333333333333%;
-}
-
 .history .history-photo img {
-  margin-top: 50px;
   max-width: 100%;
-  height: auto;
+  height: 487.6px;
 }
 
 .history .history-text {
@@ -249,6 +239,18 @@ table {
   font-size: 30px;
   font-weight: bolder;
   margin: 10px 0;
+  position: relative;
+}
+
+.history .history-text h2::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background-color: #0af;
+  position: absolute;
+  top: -20px;
+  left: 0;
 }
 
 .history .history-text h3 {
@@ -265,12 +267,12 @@ table {
   margin: 10px 0;
 }
 
-.history .btn-readmore {
+.history .history-text .btn-readmore {
   margin: 20px 5.33333333333333%;
   padding: 10px 0;
 }
 
-.history .btn-readmore button {
+.history .history-text .btn-readmore button {
   width: 164px;
   height: 60px;
   border: 0;
@@ -281,7 +283,7 @@ table {
   outline: none;
 }
 
-.history .btn-readmore button:hover {
+.history .history-text .btn-readmore button:hover {
   color: #fff;
   background-color: #000;
 }
@@ -298,7 +300,6 @@ table {
 }
 
 .propaganda-photo .item .content .title h2 {
-  letter-spacing: 3px;
   display: inline-block;
   position: relative;
   top: -179px;
@@ -310,54 +311,50 @@ table {
   font-family: Montserrat,sans-serif;
 }
 
-.recent-news {
-  width: 100%;
-  max-width: 1200px;
-}
-
-.recent-news .title {
-  position: relative;
-}
-
-.recent-news .title h2 {
-  text-align: center;
+.recent-title {
   letter-spacing: 3px;
   text-align: center;
   font-size: 24px;
   font-family: Montserrat,sans-serif;
   color: #000;
   font-weight: bold;
+  position: relative;
 }
 
-.recent-news .title .h2::before {
+.recent-title::before {
   content: '';
   display: inline-block;
   width: 30px;
   height: 2px;
   background-color: #0af;
   position: absolute;
-  top: 0px;
+  top: -40px;
   left: 0;
   bottom: 0;
   right: 0;
   margin: auto;
 }
 
-.news .news-photo {
+.recent-news {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.recent-news .news .news-photo {
   margin: 10px 5.33333333333333%;
 }
 
-.news .news-photo img {
+.recent-news .news .news-photo img {
   max-width: 100%;
   height: auto;
 }
 
-.news .news-title {
+.recent-news .news .news-title {
   margin: 10px 5.33333333333333%;
   text-align: left;
 }
 
-.news .news-title a {
+.recent-news .news .news-title a {
   text-decoration: none;
   font-size: 18px;
   font-family: Montserrat,sans-serif;
@@ -365,34 +362,34 @@ table {
   letter-spacing: 2px;
 }
 
-.news .author-and-date {
+.recent-news .news .author-and-date {
   margin: 10px 5.33333333333333%;
 }
 
-.news .author-and-date p {
+.recent-news .news .author-and-date p {
   font-style: italic;
   font-size: 14px;
   font-family: Montserrat,sans-serif;
   color: #888888;
 }
 
-.news .content {
+.recent-news .news .content {
   margin: 10px 5.33333333333333%;
 }
 
-.news .content p {
+.recent-news .news .content p {
   font-size: 18px;
   font-family: Montserrat,sans-serif;
   color: #888888;
   line-height: 1.5;
 }
 
-.news .btn-allnews {
+.recent-news .news .btn-allnews {
   margin: 20px 28.1333333333333%;
   padding: 10px 0;
 }
 
-.news .btn-allnews button {
+.recent-news .news .btn-allnews button {
   width: 164px;
   height: 60px;
   border: 0;
@@ -403,7 +400,7 @@ table {
   outline: none;
 }
 
-.news .btn-allnews button:hover {
+.recent-news .news .btn-allnews button:hover {
   color: #fff;
   background-color: #000;
 }
@@ -489,27 +486,41 @@ table {
   color: #2ac5f4;
 }
 
-.footer .tail-end {
+.tail-end {
   max-width: 100%;
   padding: 10px 28.8%;
-  font-size: 0px;
+  font-size: 20px;
   text-align: center;
-  background-color: #272727;
+  background-color: #333333;
+  border: none;
 }
 
-.footer .tail-end p {
-  color: #888888;
+.tail-end p {
+  color: #ffffff;
 }
 
-.footer .tail-end a {
+.website-icon {
+  text-align: center;
+  background-color: #333333;
+}
+
+.website-icon a {
   text-decoration: none;
 }
 
-.footer .tail-end a img {
+.website-icon a img {
   margin: 0 2.66666666666667%;
 }
 
 @media screen and (max-width: 767px) {
+  .navigation-bar {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
   .navigation-bar nav {
     display: none;
     position: absolute;
@@ -546,6 +557,12 @@ table {
   .top-panel .external-site-icon a img {
     margin: 0 2.66666666666667%;
   }
+  .top-panel .recent-news .title {
+    position: relative;
+  }
+  .top-panel .recent-news .title h2 {
+    text-align: center;
+  }
   input:checked ~ .menu-btn {
     opacity: .4;
   }
@@ -576,13 +593,71 @@ table {
     -webkit-transform: translateY(8px);
             transform: translateY(8px);
   }
+  .service-claims .project {
+    margin: 10px 2.66666666666667%;
+  }
+  .service-claims .subtitle h2 {
+    margin: 10px;
+  }
+  .history .history-photo {
+    margin: 10px 5.33333333333333%;
+  }
+  .history .history-photo img {
+    margin-top: 50px;
+  }
+  .history .history-text h2::before {
+    top: -10px;
+  }
+  .tail-end {
+    padding: 0;
+    line-height: 30px;
+    font-size: 15px;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .menu-btn {
     display: none;
   }
-  nav {
+  .top-panel {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+  }
+  .top-panel .address {
+    width: 33.33333333%;
+  }
+  .top-panel .btn-phone {
+    margin: 10px;
+    width: 33.33333333%;
+    height: auto;
+    display: inline-block;
+  }
+  .top-panel .external-site-icon {
+    width: 33.33333333%;
+  }
+  .top-panel .external-site-icon a {
+    text-decoration: none;
+  }
+  .top-panel .external-site-icon a img {
+    margin: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: inline;
+  }
+  .navigation-bar .homepage {
+    display: block;
+    width: 100%;
+    background-color: #272727;
+  }
+  .navigation-bar .homepage img {
+    background-color: #272727;
+  }
+  .navigation-bar nav {
     background-color: #272727;
     position: relative;
     width: 100%;
@@ -593,19 +668,158 @@ table {
     display: -ms-flexbox;
     display: flex;
   }
-  .top-panel {
+  .navigation-bar .slideshow {
+    position: relative;
+  }
+  .navigation-bar .slideshow .title h2 {
+    font-size: 58px;
+    margin-bottom: 20px;
+  }
+  .navigation-bar .slideshow .text p {
+    font-size: 32px;
+  }
+  .navigation-bar .slideshow .external-web a {
+    display: inline-block;
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #00aaff;
+    position: absolute;
+    top: 200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .service-claims {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .service-claims .project {
+    width: 33.33333333%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .service-claims .subtitle {
+    margin: 10px 10px;
+  }
+  .service-claims .subtitle h2 {
+    text-align: left;
+  }
+  .service-claims .subtitle p {
+    line-height: 35px;
+    text-align: left;
+  }
+  .history {
     width: 100%;
+    max-width: 1200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+    padding: 30px 0;
+  }
+  .history .history-photo {
+    padding: 0 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 50%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .history .history-text {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 50%;
+  }
+  .history .history-text h2 {
+    font-size: 36px;
+    margin: 0;
+    position: relative;
+  }
+  .history .history-text p {
+    font-size: 24px;
+  }
+  .history .history-text .btn-readmore {
+    margin: 0;
+  }
+  .propaganda-photo {
+    margin: 10px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    margin: 10px auto;
+  }
+  .propaganda-photo .item {
+    width: 50%;
+  }
+  .recent-news {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     margin: auto;
   }
-  .top-panel .btn-phone {
-    height: auto;
-    display: inline-block;
+  .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin: auto;
   }
-  .top-panel .btn-phone .phone {
-    position: relative;
+  .footer .introduction {
+    width: 25%;
+  }
+  .footer .introduction .logo img {
+    max-width: auto;
+    height: 57.73px;
+  }
+  .footer .introduction h2 {
+    margin-top: 50px;
+  }
+  .tail-end {
+    max-width: 100%;
+    padding: 10px 28.8%;
+    text-align: center;
+    background-color: #333333;
+  }
+  .tail-end p {
+    color: #ffffff;
+  }
+  .website-icon {
+    text-align: center;
+    background-color: #333333;
+  }
+  .website-icon a {
+    text-decoration: none;
+  }
+  .website-icon a img {
+    margin: 0 2.66666666666667%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .propaganda-photo {
+    width: 100%;
+    max-width: 1200px;
+    margin: 10px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .propaganda-photo .item {
+    width: 25%;
   }
 }
 /*# sourceMappingURL=MANUFUX.css.map */
