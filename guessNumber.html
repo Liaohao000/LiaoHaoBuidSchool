@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            text-align: center;
+        }
+
+        .container .row .col-12 .guess {
+            border: 1px #ccc solid;
+            margin: auto;
+            width: 500px;
+            height: 100px;
+        }
+
+        .container .row .col-12 .guess p {
+            font-size: 50px;
+            line-height: 1.5;
+        }
+
+        .container .row .col-12 input {
+            margin-top: 15px;
+            font-size: 24px;
+        }
+
+        .container .row .col-12 button {
+            font-size: 24px;
+            box-sizing: border-box;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+
+        .number .col-4 button {
+            font-size: 30px;
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            margin: 10px 0;
+        }
+
+        .number .col-4 {
+            align-self: center;
+        }
+
+        .col-1 {
+            width: 8.333333333%;
+
+        }
+
+        .col-2 {
+            width: 16.666666666%;
+
+        }
+
+        .col-3 {
+            width: 25%;
+
+        }
+
+        .col-4 {
+            width: 33.333333333%;
+
+        }
+
+        .col-5 {
+            width: 41.666666666%;
+
+        }
+
+        .col-6 {
+            width: 50%;
+
+        }
+
+        .col-7 {
+            width: 58.333333333%;
+
+        }
+
+        .col-8 {
+            width: 66.666666666%;
+
+        }
+
+        .col-9 {
+            width: 75%;
+
+        }
+
+        .col-10 {
+            width: 83.333333333%;
+
+        }
+
+        .col-11 {
+            width: 91.666666666%;
+
+        }
+
+        .col-12 {
+            width: 100%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="guess">
+                    <p id="range"></p>
+                </div>
+            </div>
+            <div class="col-12">
+                <input type="text" id="input">
+            </div>
+            <div class="col-12">
+                <button id="rnd" onclick="rnd()">
+                    Random Number!
+                </button>
+            </div>
+            <div class="col-12">
+                <div class="btn">
+                    <button onclick="inputNum(this)" value="1">1</button>
+                    <button onclick="inputNum(this)" value="2">2</button>
+                    <button onclick="inputNum(this)" value="3">3</button>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="btn">
+                    <button onclick="inputNum(this)" value="4">4</button>
+                    <button onclick="inputNum(this)" value="5">5</button>
+                    <button onclick="inputNum(this)" value="6">6</button>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="btn">
+                    <button onclick="inputNum(this)" value="7">7</button>
+                    <button onclick="inputNum(this)" value="8">8</button>
+                    <button onclick="inputNum(this)" value="9">9</button>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="btn">
+                    <button onclick="Clear()">X</button>
+                    <button onclick="inputNum(this)" value="0">0</button>
+                    <button onclick="Sent()">V</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        alert('Please press "Random Number!"')
+        var ans = null;
+        var start = 0;
+        var bottom = 100;
+        var range = document.getElementById('range');
+        var input = document.getElementById('input');
+        range.innerHTML = '';
+        function inputNum(e) {
+            input.value += e.value;
+        }
+        function Clear() {
+            input.value = '';
+        }
+        function rnd() {
+            start = 0;
+            bottom = 100;
+            ans = 0;
+
+            ans = Math.floor(Math.random() * 101);
+            if (ans < 0 || ans > 100) {
+                ans = Math.floor(Math.random() * 101);
+            }
+            else {
+                alert(ans);
+                range.innerText = start + '~' + bottom;
+                return ans;
+            }
+
+        }
+        function Sent() {
+            var guess = input.value;
+            if (guess > 100 || guess < 0) {
+                alert('Please input real number!');
+            }
+            else {
+                if (guess < ans) {
+                    if (guess <= start) {
+                        alert('Please input real number!');
+                    }
+                    else {
+                        start = guess;
+                    }
+                }
+
+                else if (guess > ans) {
+                    if (guess >= bottom) {
+                        alert('Please input real number!');
+                    }
+                    else {
+                        bottom = guess;
+                    }
+                }
+                else if (guess = ans) {
+                    alert('Answer is ' + ans + '.');
+                    start = 0;
+                    bottom = 100;
+                }
+            }
+            range.innerText = start + '~' + bottom;
+            input.value = '';
+
+        }
+
+
+    </script>
+</body>
+
+</html>
