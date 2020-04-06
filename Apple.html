@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APPLE</title>
     <style>
+        body {
+            margin: 0;
+        }
+
         .col-1 {
             width: 8.333333333%;
 
@@ -95,6 +99,11 @@
             background-color: #fff;
             border: 2px solid #ccc;
             cursor: pointer;
+            transition: .2s;
+        }
+
+        .color .col-6 button:hover {
+            border: 2px solid rgb(98, 188, 224);
         }
 
         .color .row .col-6 {
@@ -105,6 +114,7 @@
         .color .row .col-6 button img {
             width: 100%;
             max-width: 32px;
+            background-color: transparent;
         }
 
         .capacity button {
@@ -115,6 +125,12 @@
             background-color: #fff;
             border: 2px solid #ccc;
             cursor: pointer;
+            transition: .2s;
+        }
+
+        .capacity button:hover {
+            border: 2px solid rgb(98, 188, 224);
+
         }
 
         .capacity button h3 {
@@ -123,9 +139,12 @@
 
         .container .row .col-6 .title {
             position: sticky;
+            box-sizing: border-box;
+            padding-top: 10px;
             top: 0;
             z-index: 1;
-            background-color: #fff;
+            background-color: white;
+            border-bottom: 1px solid lightgray;
         }
     </style>
 </head>
