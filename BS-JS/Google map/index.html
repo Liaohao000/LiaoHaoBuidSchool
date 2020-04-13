@@ -46,8 +46,8 @@
             // The marker, positioned at chu
             var marker = new google.maps.Marker({ position: chu, map: map });
         }
-        // const url = 'https://findmasks.herokuapp.com/places';
-        const url = 'https://maskmap.azurewebsites.net/api/mask/getmaskstock';
+        const url = 'https://findmasks.herokuapp.com/places';
+        // const url = 'https://maskmap.azurewebsites.net/api/mask/getmaskstock';
 
         fetch(url)
             .then((response) => response.json())
@@ -68,7 +68,7 @@
                         var marker = new google.maps.Marker({
                             position: latLng,
                             map: map,
-                            icon: '../sad.png',
+                            icon: 'sad.png',
                             customerProp: data.features[i]
                         });
                         google.maps.event.addListener(marker, 'click', function (mk) {
@@ -91,7 +91,7 @@
                         var marker = new google.maps.Marker({
                             position: latLng,
                             map: map,
-                            icon: '../smile.png',
+                            icon: 'smile.png',
                             customerProp: data.features[i]
                         });
 
