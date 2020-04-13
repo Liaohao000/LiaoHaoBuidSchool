@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 70%;
+            width: 80%;
+            margin: auto;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: auto;
+            padding: 0;
+        }
+
+        .gm-style-iw-t {
+            top: -80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        var infowindow;
+        var map;
+        function initMap() {
+            // The location of Uluru
+            var chu = { lat: 24.757449, lng: 120.952282 };
+            // The map, centered at chu
+            map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 12, center: chu });
+
+            infowindow = new google.maps.InfoWindow({
+                maxWidth: 300
+            });
+            // The marker, positioned at chu
+            var marker = new google.maps.Marker({ position: chu, map: map });
+        }
+        // const url = 'https://findmasks.herokuapp.com/places';
+        const url = 'https://maskmap.azurewebsites.net/api/mask/getmaskstock';
+
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                for (var i = 0; i < data.features.length; i++) {
+                    var coords = data.features[i].geometry.coordinates;
+                    var mask_quantity = data.features[i].properties.masksLeft;
+
+                    // var h_name = data.features[i].properties.name;
+                    // var contentString = '<div id="content">' +
+                    //     '<h1>' + h_name + '</h1>' +
+                    //     '<p>口罩數量：' + mask_quantity + '</p>' +
+                    //     '</div>';
+
+
+                    var latLng = new google.maps.LatLng(coords[1], coords[0]);
+                    if (mask_quantity == 0) {
+                        var marker = new google.maps.Marker({
+                            position: latLng,
+                            map: map,
+                            icon: '../sad.png',
+                            customerProp: data.features[i]
+                        });
+                        google.maps.event.addListener(marker, 'click', function (mk) {
+                            infowindow.close();
+                            infowindow.setContent(
+                                `<div id="content">
+                                    <h1>${this.customerProp.properties.name}</h1>
+                                    <p>口罩數量：${this.customerProp.properties.masksLeft}<br>
+                                        兒童口罩數量：${this.customerProp.properties.childMasksLeft}
+                                    </p>
+                                </div>`
+                            );
+                            infowindow.setPosition(mk.latLng);
+                            //infowindow.setPosition({ lat: mk.latLng.lat() + 0.02, lng: mk.latLng.lng() });
+                            infowindow.open(map);
+                        });
+
+                    }
+                    else {
+                        var marker = new google.maps.Marker({
+                            position: latLng,
+                            map: map,
+                            icon: '../smile.png',
+                            customerProp: data.features[i]
+                        });
+
+                        google.maps.event.addListener(marker, 'click', function (mk) {
+                            infowindow.close();
+                            infowindow.setContent(
+                                `<div id="content">
+                                    <h1>${this.customerProp.properties.name}</h1>
+                                    <p>口罩數量：${this.customerProp.properties.masksLeft}<br>
+                                        兒童口罩數量：${this.customerProp.properties.childMasksLeft}
+                                    </p>
+                                </div>`
+                            );
+                            infowindow.setPosition(mk.latLng);
+                            //infowindow.setPosition({ lat: mk.latLng.lat() + 0.02, lng: mk.latLng.lng() });
+                            infowindow.open(map);
+                        });
+                    }
+                }
+
+
+
+            }
+            )
+            .catch((error) => {
+                alert('Fuck you!');
+            });
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlKWP4uWjQIR3WDAWLAu6rUhBfc3_ppag&callback=initMap"
+        async defer></script>
+</body>
+
+</html>
