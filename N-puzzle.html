@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <h1>N-Puzzle</h1>
+    <div class="slider">
+        <form>
+            <label for="">容易</label>
+            <input type="range" id="scale" value="4" min="3" max="5" step="1">
+            <label for="">困難</label>
+            <br>
+            <img src="./test.jpg" width="120px" height="120ox" alt="測試圖片">
+        </form>
+
+        <div class="main" id="main">
+            <canvas id="puzzle" width="480px" height="480px"></canvas>
+        </div>
+    </div>
+    <script>
+        var context = document.getElementById('puzzle').getContext('2d');
+        var img = new Image();
+        img.src = './test.jpg';
+        img.addEventListener('load', drawTiles, false);
+
+        var boardSize = document.getElementById('puzzle').width;
+        var titleCount = document.getElementById('scale').value;
+        var titleSize = boardSize / titleCount;
+
+        var clickLoc = new Object(); //記錄使用者操作位置
+        clickLoc.x = 0;
+        clickLoc.y = 0;
+        var emptyLoc = new Object(); //保存空白圖片位置
+        emptyLoc.x = 0;
+        emptyLoc.y = 0;
+        var solved = false; //查看圖片是否完成，如果全部完成則變成true
+
+        var boardParts = new Object();
+        initBoard();
+        function initBoard() {
+            boardParts = new Array(titleCount * titleCount); //宣告boardParts為一個陣列
+            for (let i = 0; i < titleCount * titleCount; i++) {
+                boardParts[i] = i;
+            }
+            shift();//拚塊的隨機排列
+        }
+        function sortNumber(a, b) {
+            return Math.random() > 0.5 ? -1 : 1;
+        }
+        function shift() {
+            boardParts.sort(sortNumber);
+            emptyLoc.x = 0;
+            emptyLoc.y = 0;
+            solved = false;
+        }
+        function drawTiles() {
+            context.clearRect(0, 0, boardSize, boardSize);
+            for (let i = 0; i < titleCount; i++) {
+                for (let j = 0; j < titleCount; j++) {
+                    var n = boardParts[i * titleCount + j];
+                    var x = parseInt(n / titleCount);
+                    var y = n % titleCount;
+
+                    if (i != emptyLoc.x || j != emptyLoc.y || solved == true) {
+                        context.drawImage(img, x * titleSize, y * titleSize, titleSize, titleSize, i * titleSize, j * titleSize, titleSize, titleSize);
+                    }
+                }
+            }
+        }
+        document.getElementById('puzzle').onmousemove = function (e) {
+            clickLoc.x = Math.floor((e.pageX - this.offsetLeft) / titleSize);
+            clickLoc.y = Math.floor((e.pageY - this.offsetTop) / titleSize);
+        };
+        document.getElementById('puzzle').onclick = function () {
+            if (distance(clickLoc.x, clickLoc.y, emptyLoc.x, emptyLoc.y) == 1) {
+                slideTile(emptyLoc, clickLoc);
+                drawTiles();
+            }
+            if (solved) {
+                setTimeout(function () {
+                    alert('you do it!');
+                }, 500);
+            }
+        };
+        function distance(x1, y1, x2, y2) {
+            return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+        }
+        function slideTile(emptyLoc, clickLoc) {
+            if (!solved) {
+                var t;
+                t = boardParts[emptyLoc.x * titleCount + emptyLoc.y];
+                boardParts[emptyLoc.x * titleCount + emptyLoc.y] = boardParts[clickLoc.x * titleCount + clickLoc.y];
+                boardParts[clickLoc.x * titleCount + clickLoc.y] = t;
+                emptyLoc.x = clickLoc.x;
+                emptyLoc.y = clickLoc.y;
+                checkSolved();
+            }
+        }
+        function checkSolved() {
+            var flag = true;
+            for (let i = 0; i < titleCount * titleCount; i++) {
+                if (boardParts[i] != i) {
+                    flag = false;
+                }
+            }
+            solved = false;
+
+        }
+
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
